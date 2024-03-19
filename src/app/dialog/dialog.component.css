@@ -1,0 +1,25 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  .mat-form-field{
+    width: 100%;
+  }
+  .custom-date-field {
+    width: 205px;  
+  }
+  .custom-300px {
+    width: 300px;  
+  }
+  .custom-150px {
+    width: 150px;  
+  }
+  .custom-90px {
+    width: 90px;  
+  }
+  .custom-105px {
+    width: 105px;  
+  }
+  .date-and-vitals-container {
+    display: flex; /* Use flexbox to arrange items horizontally */
+    gap: 3px;  
+  }

@@ -1,0 +1,134 @@
+<h1 mat-dialog-title>
+  {{dialogTitle}}
+</h1>
+
+<div mat-dialog-content mat-dialog-content style="max-height: 80vh; overflow-y: auto;">
+  <form class="example-form" [formGroup]="patientForm" enctype="multipart/form-data">
+
+    <table class="example-full-width" cellspacing="0">
+      <div>
+        <tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>First name</mat-label>
+              <input formControlName="FirstName" matInput>
+            </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Last name</mat-label>
+              <input formControlName="LastName" matInput>
+            </mat-form-field></td>
+        </tr>
+      </div>
+    </table>
+
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+      <tr>
+        <div>
+          <td><mat-form-field class="custom-300px" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input formControlName="Email" matInput placeholder="pat@example.com">
+
+            </mat-form-field></td>
+          <td><mat-form-field class="custom-150px" appearance="fill">
+              <mat-label>Contact Number</mat-label>
+              <input formControlName="ContactNumber" matInput #contactNumber maxlength="10"
+                placeholder="Ex. 9999999999">
+              <mat-hint align="end"></mat-hint>
+            </mat-form-field></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <td><mat-form-field class="custom-300px">
+              <mat-label>Allergies</mat-label>
+              <mat-select [(ngModel)]="selectedAllergies" [ngModelOptions]="{standalone: true}" name="Allergy">
+                <mat-option *ngFor="let allergy of allergies" [value]="allergy.viewValue">
+                  {{allergy.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field></td>
+          <td><mat-form-field class="custom-150px">
+              <mat-label>Food Categories</mat-label>
+              <mat-select [(ngModel)]="selectedFood" [ngModelOptions]="{standalone: true}" name="Food">
+                <mat-option *ngFor="let food of foods" [value]="food.viewVal">
+                  {{food.viewVal}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field></td>
+        </div>
+      <tr>
+        <div class="date-and-vitals-container">
+          <td>
+            <mat-form-field class="custom-date-field" appearance="fill">
+              <mat-label>Date Of Birth</mat-label>
+              <input max={{maxDate}} formControlName="DateOfBirth" matInput [matDatepicker]="picker">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </td>
+          <td *ngIf="!isUpdate">
+            Vitals
+      <tr>
+        <td>
+          <mat-form-field class="custom-90px" appearance="fill">
+            <mat-label>Weight</mat-label>
+            <input formControlName="Weight" matInput placeholder="Kgs Ex:60.5">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="custom-90px" appearance="fill">
+            <mat-label>Height</mat-label>
+            <input formControlName="Height" matInput placeholder="Inches Ex:65.3">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="custom-105px" appearance="fill">
+            <mat-label>Temperature</mat-label>
+            <input formControlName="Temperature" placeholder="Farenheit" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <mat-form-field class="custom-90px" appearance="fill">
+            <mat-label>SP</mat-label>
+            <input formControlName="SP" placeholder="Systolic Pressure" matInput>
+          </mat-form-field>
+        </td>
+        <td> <mat-form-field class="custom-90px" appearance="fill">
+            <mat-label>DP</mat-label>
+            <input formControlName="DP" placeholder="Diastolic Pressure" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      </td>
+</div>
+</tr>
+
+<br>
+<tr>
+  <td>
+    <mat-label for="file">Upload Health Report: </mat-label>
+    <mat-label for="file">Upload Health Report: </mat-label>
+    <div *ngIf="uploadedFileNames.length > 0">
+      <ul>
+        <li *ngFor="let fileName of uploadedFileNames">{{ fileName }}</li>
+      </ul>
+    </div>
+    <input type="file" multiple (change)="saveFile($event)">
+  </td>
+</tr>
+<br>
+<br>
+<button mat-raised-button color="primary" (click)="addPatient(patientForm)"> Submit</button>
+
+
+<button style="margin-left:10px;" mat-raised-button color="warn" mat-dialog-close>Close</button>
+
+</table>
+</form>
+</div>

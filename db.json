@@ -1,0 +1,100 @@
+{
+  "patientList": [
+    {
+      "FirstName": "Aruna",
+      "LastName": "Selvam",
+      "Address": "21",
+      "Address2": "Commerce Street",
+      "City": "Aurora",
+      "State": "Illinois",
+      "PostalCode": "93003",
+      "Email": "pat@gmail.com",
+      "ContactNumber": "9374983702",
+      "Allergy": "No",
+      "FoodCategory": "Veg",
+      "id": 1
+    },
+    {
+      "FirstName": "Sudha",
+      "LastName": "Valli",
+      "Address": "32",
+      "Address2": "Kentucky Street",
+      "City": "Kentucky",
+      "State": "Kentucky",
+      "PostalCode": "80342",
+      "Email": "then@gmail.com",
+      "ContactNumber": "3288490048",
+      "Allergy": "Yes",
+      "FoodCategory": "NonVeg",
+      "id": 2
+    },
+    {
+      "FirstName": "Aruna",
+      "LastName": "Selvam",
+      "Address": "kkalsfjl",
+      "Address2": "adfam",
+      "City": "sdmf",
+      "State": "ddk",
+      "PostalCode": "97322",
+      "Email": "q@gmail.com",
+      "ContactNumber": "7397349984",
+      "Allergy": "No",
+      "FoodCategory": "Veg",
+      "id": 3
+    },
+    {
+      "FirstName": "Aruna",
+      "LastName": "Selvam",
+      "Address": "109",
+      "Address2": "Address",
+      "City": "city",
+      "State": "state",
+      "PostalCode": "92898",
+      "Email": "pat@gmail.com",
+      "ContactNumber": "7328912002",
+      "Allergy": "No",
+      "FoodCategory": "Veg",
+      "id": 4
+    },
+    {
+      "FirstName": "First",
+      "LastName": "Last",
+      "Address1": "Address1",
+      "Address2": "Address2",
+      "City": "City",
+      "State": "State",
+      "PostalCode": "94930",
+      "Country": "India",
+      "Email": "Q@gmail.com",
+      "ContactNumber": "9438938498",
+      "Allergy": "No",
+      "FoodCategory": "Veg",
+      "id": 5
+    },
+    {
+      "FirstName": "Test",
+      "LastName": "Name",
+      "Address1": "Add",
+      "Address2": "Add",
+      "City": "City",
+      "State": "State",
+      "PostalCode": "93489",
+      "Country": "UAE",
+      "Email": "e@gmail.com",
+      "ContactNumber": "9349849444",
+      "Allergy": "No",
+      "FoodCategory": "Non Veg",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

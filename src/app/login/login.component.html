@@ -1,0 +1,38 @@
+<div class="login-content">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="loginForm" class="login-form"action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()">
+        <p>Dietitian Application</p>
+         <div class="form-group">
+        <mat-form-field class="full-width-input">
+          <label for="username" >Username</label>
+          <input type="text" matInput class ="form-control" id="username" formControlName="userLoginEmail"  
+           required />   
+          
+        </mat-form-field></div>
+        <div class ="form-group"><mat-form-field class="full-width-input">
+          <label for="password">Password</label><br>
+          <input  id="password" matInput class="form-control" type="password" formControlName="password"   
+                             required/>  
+          
+        </mat-form-field></div>
+       <div> <button class="login-button"  mat-raised-button color="primary" type="submit"
+        [disabled]="this.loading"  value="Login" (click)="submit=true">Login</button></div>
+        <br>
+        <div class="form-group">
+          <div  class="text-center" *ngIf="this.loading">
+              <div class="spinner-border text-primary " role="status">
+              <span class="sr-only">Loading...</span>
+              </div>
+          </div>
+          <span class="text-danger" *ngIf="this.errorMessage" >
+          <p [innerText]="this.errorMessage"></p>
+          </span>
+         
+      </div>
+     
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

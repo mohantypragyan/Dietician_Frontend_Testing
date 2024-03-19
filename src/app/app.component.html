@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    
+      <mat-icon>home</mat-icon>
+    
+  </button>
+  <span>Dietitian Project</span>
+  <span class="example-spacer"></span>
+  <button mat-button color="Basic" a routerLink="/readpatients" >My Patients</button>
+  <!--<button  id="sign-upId" mat-raised-button color="primary" a routerLink="/sign-up">Sign UP</button> -->
+
+  <button mat-button color="Basic" (click)="openDialog()">New Patient</button>
+  <button mat-button color="Basic" a routerLink="/login">Login</button>
+  <button  mat-button color="Basic" (click)="authService.logout()"> Logout </button>
+  
+</mat-toolbar>
+
+<router-outlet></router-outlet>

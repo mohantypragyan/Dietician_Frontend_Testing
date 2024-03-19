@@ -1,0 +1,107 @@
+<div>
+    <mat-card>
+        <mat-card-title>
+            <div class="center">
+                <h1>My Patients </h1>
+            </div>
+        </mat-card-title>
+        <div class="search-header-align">
+            <div class="search-header" color="warn">
+                <div>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" id="filterGlobal" placeholder="Search..."
+                            (input)="dt.filterGlobal($any($event.target).value, 'containsWithDateFormat')" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-around center" style="height:100%">
+                <mat-spinner [diameter]="50" strokeWidth="5" *ngIf="visibility">
+                </mat-spinner>
+            </div>
+
+            <div class="patient-list">
+                <p-table #dt responsiveLayout="stack" [value]="patients" [rows]="5" [paginator]="true"
+                    [globalFilterFields]="['FirstName','LastName','ContactNumber','Email', 'DateOfBirth']" [rowHover]="true"
+                    dataKey="userId" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} patients"
+                    [showCurrentPageReport]="true">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="patientId"> Patient Id
+                                <p-sortIcon field="patientId"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="FirstName"> Name
+                                <p-sortIcon field="FirstName"></p-sortIcon>
+                            </th>
+                            <th>
+                                Details
+                            </th>
+                            <th>Last Visit Date</th>
+                            <th> Actions
+                            </th>
+                            <th style="width: 10rem">Edit/Delete</th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-patient>
+                        <tr>
+                            <td> {{patient.patientId }} </td>
+                            <td>{{patient.FirstName}} {{patient.LastName}}</td>
+                            <td>
+                        <tr> {{patient.ContactNumber}}</tr>
+                        <tr> {{patient.Email}}</tr>
+                        <tr> {{patient.DateOfBirth | date:'MM/dd/yyyy'}}</tr>
+                        <td> {{patient.LastVisitDate | date:'MM/dd/yyyy'}}</td>
+
+                        <td>
+                            <div class="action">
+                                <span>
+                                    <button id="viewTestReports" color="view-test" mat-raised-button style="margin:3px;"
+                                        (click)="viewTestReports(patient)">
+                                        View Previous Test Reports
+                                    </button>
+                                </span>
+                                <span>
+                                    <button mat-raised-button color="diet-plan" style="margin:3px;"
+                                        id="viewPresentDietPlans" (click)="viewPresentDietPlans(patient)">
+                                        View Previous Diet Plans
+                                    </button>
+                                </span>
+                                <span>
+                                    <button mat-raised-button color="create" style="margin:3px;" id="createNewReportOrDietPlan"
+                                        (click)="createNewReportOrDietPlan(patient)">
+                                        Create New Report/Plan
+                                    </button>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="action">
+                                <span>
+                                    <button pButton pRipple icon="pi pi-pencil"
+                                        class="p-button-rounded p-button-success" (click)=" editPatient(patient)">
+                                    </button>
+                                </span>
+                                <span>
+                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                                        (click)="deletePatient(patient)"></button>
+                                </span>
+                            </div>
+                        </td>
+                        </tr>
+                    </ng-template>
+
+                </p-table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<p-dialog [(visible)]="testReportsDialogue" [style]="{width: '1150px'}" [modal]="true"
+    [contentStyle]="{height: '800px'}" styleClass="p-fluid"> <!-- header="View Patient Test Reports" -->
+
+    <app-viewtestreports [patientDetail]="patient" *ngIf="testReportsDialogue"> </app-viewtestreports>
+</p-dialog>
