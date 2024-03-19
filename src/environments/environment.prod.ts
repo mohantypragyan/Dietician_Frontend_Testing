@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  url:'https://dietician-dev-41d9a344a720.herokuapp.com/dietician'
+  production: true,
+  url:'https://dieticianstaging-f334e4b782aa.herokuapp.com/dietician'
 };
