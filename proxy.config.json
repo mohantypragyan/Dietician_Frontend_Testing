@@ -1,7 +1,7 @@
 {
     "/api": {
       
-    "target":"https://dieticianstaging-f334e4b782aa.herokuapp.com/",
+    "target":"https://dieticianstaging-f334e4b782aa.herokuapp.com/dietician",
     "pathRewrite": {
     "^/api": ""
     },
